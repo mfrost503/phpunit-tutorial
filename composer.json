@@ -1,0 +1,34 @@
+{
+    "name": "Matt Frost",
+    "type": "Tutorial",
+    "license": "MIT",
+    "description": "PHPUnit Tutorial",
+    "keywords": ["tutorial"],
+    "homepage": "https://github.com/mfrost503/phpunit-tutorial",
+    "authors" : [
+        {
+            "name": "Matt Frost",
+            "email": "mfrost.design@gmail.com",
+            "homepage": "http://shortwhitebaldguy.com",
+            "role": "developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": ">=5.0.0",
+        "mfrost503/snaggle": ">=1.0.0"
+    },
+    "autoload" : {
+        "psr-4": {
+            "Tutorial\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tutorial\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.4"
+    }
+}

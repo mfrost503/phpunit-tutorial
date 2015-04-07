@@ -4,5 +4,11 @@
         <testsuite name="Tutorial">
             <directory>./tests</directory>
         </testsuite>
+        <testsuite name="Math">
+            <directory>./tests/Math</directory>
+        </testsuite>
+        <testsuite name="Serializer">
+            <directory>./tests/Serializer</directory>
+        </testsuite>
     </testsuites>
 </phpunit>

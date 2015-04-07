@@ -38,15 +38,20 @@ class Addition
             throw new InvalidArgumentException("Offset must be an integer");
         }
 
+        $arrayCount = count($this->numbers);
+        if ($offset > $arrayCount) {
+            $offset = $arrayCount;
+        }
         // Normally we'd just use array_sum here, but lets assume we don't want
         // to make non-numeric entries default to 0.
         // Is there a way we can refactor this?
         $sum = 0;
-        foreach ($this->numbers as $number) {
-            if (!is_numeric($number)) {
+        $end = ($offset > -1) ? $offset : $arrayCount; 
+        for ($x=0; $x < $end; $x++) {
+            if (!is_numeric($this->numbers[$x])) {
                 throw new InvalidArgumentException("All array elements must be numeric");
             }
-            $sum += $number;
+            $sum += $this->numbers[$x];
         } 
 
         return $sum;

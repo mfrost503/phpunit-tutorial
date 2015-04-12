@@ -1,3 +1,4 @@
 vendor/
 testsDone/
 phpunit-done.xml
+code_coverage/

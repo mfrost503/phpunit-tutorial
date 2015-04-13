@@ -1,0 +1,1 @@
+{"ok":true,"channel":"C04C8KJRC","ts":"1428941183.000005","message":{"text":"This is a test","username":"bot","type":"message","subtype":"bot_message","ts":"1428941183.000005"}}

@@ -40,4 +40,23 @@ class AdditionTest extends PHPUnit_Framework_TestCase
     {
         // provide the body of the test to ensure the method is working correctly
     }
+
+	public function numberProvider()
+	{
+		return [
+			[
+				[1,2,3,4,5], 15],
+			[
+				[2,3,4,5,6], 20]
+		];
+	}
+		/**
+	     * @dataProvider numberProvider
+		*/
+		public function testScenarios($input, $expected)
+		{
+			$math = new Addition($input);
+			$sum = $math->sum();
+			$this->assertEquals($sum, $expected);
+		}
 }

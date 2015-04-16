@@ -10,7 +10,7 @@ use stdClass;
  * @package Tutorial
  * @subpackage Tests
  * @subpackage Serializer
- */ 
+ */
 class ArraySerializerTest extends PHPUnit_Framework_TestCase
 {
     /**
@@ -44,8 +44,8 @@ class ArraySerializerTest extends PHPUnit_Framework_TestCase
         $object->lastName = 'Jones';
         $object->email = 'test@test.com';
         $object->phone = '111-111-1111';
-
-        // finish the test!
+        $array = $this->arraySerializer->serialize($object);
+        $this->assertEquals($array['firstName'], $object->firstName);
     }
 
     /**
@@ -53,18 +53,24 @@ class ArraySerializerTest extends PHPUnit_Framework_TestCase
      */
     public function testEnsureJSONIsSerializedToArray()
     {
-        $json = json_encode(
+        $inputArray =
             [
                 'firstName' => 'Mike',
                 'lastName' => 'Jones',
-                'email' => 'test@test.com',
-                'phone' => '111-111-1111'
-            ]
-        );
+                'phone' => '111-111-1111',
+                'email' => 'test@test.com'
+            ];
+        $json = json_encode($inputArray);
 
         // ensure we got a valid json string
         $this->assertInternalType('string', $json);
 
-        //finish the test!
+        $array = $this->arraySerializer->serialize($json);
+        $this->assertEquals(
+            $array['firstName'],
+            $inputArray['firstName']
+        );
+        $this->assertSame($array, $inputArray);
+
     }
 }
